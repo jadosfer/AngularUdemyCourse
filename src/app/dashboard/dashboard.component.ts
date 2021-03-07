@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   Designation: string = "";
@@ -24,9 +24,9 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.Designation = 'Team Leader';
-    this.Username = 'Scott Smith Fernández';
+    this.Username = 'Scott Smith';
     this.NoOfTeamMembers = 67;
     this.TotalCostOfAllProjects = 240;
     this.PendingTasks = 15;
@@ -107,7 +107,26 @@ export class DashboardComponent implements OnInit {
           { ID: 16, Name: 'James', Status: 'Busy' },
         ],
       },
-    ];  
+    ];
   }
 
+  onProjectChange($event) {
+    if ($event.target.innerHTML == 'Project A') {
+      this.ProjectCost = 2113507;
+      this.CurrentExpenditure = 96788;
+      this.AvailableFunds = 52436;
+    } else if ($event.target.innerHTML == 'Project B') {
+      this.ProjectCost = 88923;
+      this.CurrentExpenditure = 22450;
+      this.AvailableFunds = 2640;
+    } else if ($event.target.innerHTML == 'Project C') {
+      this.ProjectCost = 662183;
+      this.CurrentExpenditure = 7721;
+      this.AvailableFunds = 9811;
+    } else if ($event.target.innerHTML == 'Project D') {
+      this.ProjectCost = 928431;
+      this.CurrentExpenditure = 562;
+      this.AvailableFunds = 883;
+    }
+  }
 }
