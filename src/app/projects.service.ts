@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Project} from "./project";
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,10 @@ export class ProjectsService {
 
   deleteProject(ProjectID: number): Observable<string> {
     return this.httpClient.delete<string>("api/projects?ProjectID=" + ProjectID);
+  }
+
+  searchProjects(searchBy: string, searchText: string): Observable<Project[]> {
+    return this.httpClient.get<Project[]>("api/projects/search/" + searchBy + "/" + searchText, {responseType: "json"});
   }
 }
 
