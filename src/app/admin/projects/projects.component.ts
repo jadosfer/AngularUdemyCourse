@@ -7,12 +7,17 @@ import { Project } from 'src/app/project';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements OnInit {
-  projects!: Project[];
+export class ProjectsComponent implements OnInit
+{
+  projects: Project[] = [];
+  newProject: Project = new Project();
 
-  constructor(private projectsService : ProjectsService) { }
+  constructor(private projectsService: ProjectsService)
+  {
+  }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.projectsService.getAllProjects().subscribe(
       (response: Project[]) => {
         this.projects = response;
@@ -20,4 +25,19 @@ export class ProjectsComponent implements OnInit {
     );
   }
 
+  onSaveClick()
+  {
+    this.projectsService.insertProject(this.newProject).subscribe((response) => {
+      this.newProject = response;           
+      this.projects.push(this.newProject);
+
+      //Clear New Project Dialog - TextBoxes
+      this.newProject.projectID = 0;
+      this.newProject.projectName = "";
+      this.newProject.dateOfStart = "";
+      this.newProject.teamSize = 0;
+    }, (error) => {
+      console.log(error);
+    });
+  }
 }
