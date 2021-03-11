@@ -11,6 +11,10 @@ export class ProjectsComponent implements OnInit
 {
   projects: Project[] = [];
   newProject: Project = new Project();
+  editProject: Project = new Project();
+  editIndex: number = 0;
+  deleteProject: Project = new Project();
+  deleteIndex: number = 0;
 
   constructor(private projectsService: ProjectsService)
   {
@@ -28,8 +32,13 @@ export class ProjectsComponent implements OnInit
   onSaveClick()
   {
     this.projectsService.insertProject(this.newProject).subscribe((response) => {
-      this.newProject = response;           
-      this.projects.push(this.newProject);
+       //Add Project to Grid
+       var p: Project = new Project();
+       p.projectID = response.projectID;
+       p.projectName = response.projectName;
+       p.dateOfStart = response.dateOfStart;
+       p.teamSize = response.teamSize;
+       this.projects.push(p);
 
       //Clear New Project Dialog - TextBoxes
       this.newProject.projectID = 0;
@@ -39,5 +48,34 @@ export class ProjectsComponent implements OnInit
     }, (error) => {
       console.log(error);
     });
+  }
+
+  onEditClick(event, index: number) {
+    this.editProject.projectID = this.projects[index].projectID;
+    this.editProject.projectName = this.projects[index].projectName;
+    this.editProject.dateOfStart = this.projects[index].dateOfStart;
+    this.editProject.teamSize = this.projects[index].teamSize;
+    this.editIndex = index;
+  }
+
+  onUpdateClick() {
+    this.projectsService.updateProject(this.editProject).subscribe(
+      (response: Project) => {
+        var p: Project = new Project();
+        p.projectID = response.projectID;
+        p.projectName = response.projectName;
+        p.dateOfStart = response.dateOfStart;
+        p.teamSize = response.teamSize;
+        this.projects[this.editIndex] = p;
+
+        this.editProject.projectID = 0;
+        this.editProject.projectName = "";
+        this.editProject.dateOfStart = "";
+        this.editProject.teamSize = 0;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
