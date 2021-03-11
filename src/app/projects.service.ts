@@ -12,7 +12,18 @@ export class ProjectsService {
   constructor(private httpClient : HttpClient) { }
 
   getAllProjects(): Observable<Project[]> {
-    return this.httpClient.get<Project[]>("api/projects", {responseType: "json"});
+    return this.httpClient.get<Project[]>("api/projects", {responseType: "json"})
+    .pipe(map(
+      (data: Project[]) => {
+        for (let i=0; i < data.length;i++){
+          data[i].teamSize = data[i].teamSize * 100;
+
+        }
+        return data;
+      }
+    )
+
+    );
   }
 
   insertProject(newProject: Project): Observable<Project> {
