@@ -27,6 +27,14 @@
             >
               Edit
             </button>
+            <button
+              class="btn btn-info"
+              (click)="onDeleteClick($event, i)"
+              data-toggle="modal"
+              data-target="#deleteModal"
+            >
+              Delete
+            </button>
           </td>
         </tr>
       </tbody>
@@ -180,3 +188,43 @@
       </div>
     </div>
   </form>
+
+  <!-- Delete Project -->
+<form>
+    <div class="modal" role="dialog" id="deleteModal">
+      <div class="modal-dialog">
+        <div class="modal-content" style="width:700px">
+          <div class="modal-header">
+            <div class="modal-title">Delete Project</div>
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+  
+            <div class="text-warning">Are you sure to delete this Project?</div>
+  
+            <div class="form-group row">
+              <label for="txtDeleteProjectID" class="col-sm-4 col-form-label">Project ID</label>
+              <div class="col-sm-8">
+                <input type="text" id="txtDeleteProjectID" style="width:100px" class="form-control-plain-text" placeholder="Project ID"
+                  name="ProjectID" [(ngModel)]="deleteProject.projectID" disabled="disabled">
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="txtDeleteProjectName" class="col-sm-4 col-form-label">Project Name</label>
+              <div class="col-sm-8">
+                <input type="text" id="txtDeleteProjectName" class="form-control-plain-text" placeholder="Project Name"
+                  name="ProjectName" [(ngModel)]="deleteProject.projectName" disabled="disabled">
+              </div>
+            </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-warning" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success" data-dismiss="modal" (click)="onDeleteConfirmClick()">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  

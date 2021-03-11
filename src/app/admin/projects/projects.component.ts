@@ -16,6 +16,7 @@ export class ProjectsComponent implements OnInit
   deleteProject: Project = new Project();
   deleteIndex: number = 0;
 
+
   constructor(private projectsService: ProjectsService)
   {
   }
@@ -77,5 +78,27 @@ export class ProjectsComponent implements OnInit
         console.log(error);
       }
     );
+  }
+
+  onDeleteClick(event, index: number) {
+    this.deleteIndex = index;
+    this.deleteProject.projectID = this.projects[index].projectID;
+    this.deleteProject.projectName = this.projects[index].projectName;
+    this.deleteProject.dateOfStart = this.projects[index].dateOfStart;
+    this.deleteProject.teamSize = this.projects[index].teamSize;
+  }
+
+  onDeleteConfirmClick() {
+    this.projectsService.deleteProject(this.deleteProject.projectID).subscribe((response) => {
+      this.projects.splice(this.deleteIndex, 1)
+      this.deleteProject.projectID = 0;
+      this.deleteProject.projectName = "";
+      this.deleteProject.dateOfStart = "";
+      this.deleteProject.teamSize = 0;
+    }, 
+        
+    (error) => {
+      console.log(error);
+    })
   }
 }
