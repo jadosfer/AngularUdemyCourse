@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit
 {
-  loginViewModel: LoginViewModel = new LoginViewModel();
+  loginViewModel: LoginViewModel = new LoginViewModel(); 
   loginError: string = "";
 
   constructor(private loginService: LoginService, private router : Router) 

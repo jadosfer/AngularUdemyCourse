@@ -8,8 +8,8 @@ import { DashboardService } from '../../dashboard.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  Designation: string = "";
-  Username: string = "";
+  Designation: string = null;
+  Username: string = null;
   NoOfTeamMembers: number = 0;
   TotalCostOfAllProjects: number = 0;
   PendingTasks: number = 0;

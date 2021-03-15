@@ -6,9 +6,9 @@ export class Project {
 
     constructor()
     {
-        this.projectID = 0;
-        this.projectName = "";
-        this.dateOfStart = "";
-        this.teamSize = 0;
+        this.projectID = null;
+        this.projectName = null;
+        this.dateOfStart = null;
+        this.teamSize = null;
     }
 }
