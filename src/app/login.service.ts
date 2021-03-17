@@ -3,6 +3,7 @@ import { HttpClient, HttpBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginViewModel } from './login-view-model';
 import { map } from 'rxjs/operators';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { map } from 'rxjs/operators';
 export class LoginService
 {
   private httpClient : HttpClient; //esto es para que no se llame al interceptor cuando quiero autorizar (el intercep me agrega el token en el request)
-  constructor(private httpBackend: HttpBackend) //esto tambien
+  constructor(private httpBackend: HttpBackend, private jwtHelperService: JwtHelperService) //esto tambien
   {
   }
 
@@ -36,4 +37,20 @@ export class LoginService
     sessionStorage.removeItem("currentUser");
     this.currentUserName = null;
   }
+
+  public isAuthenticated(): boolean
+  {
+    var token = sessionStorage.getItem("currentUser")? JSON.parse(sessionStorage.getItem("currentUser")).token : null;
+    if (this.jwtHelperService.isTokenExpired())
+    {
+      return false; //token is not valid
+    }
+    else
+    {
+      return true; //token is valid
+    }
+  }
 }
+
+
+

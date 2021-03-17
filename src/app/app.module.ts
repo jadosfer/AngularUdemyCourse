@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import {JwtInterceptorService} from './jwt-interceptor.service';
 import { JwtUnAuthorizedInterceptorService } from './jwt-un-authorized-interceptor.service';
+import {JwtModule} from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,14 @@ import { JwtUnAuthorizedInterceptorService } from './jwt-un-authorized-intercept
     AppRoutingModule,
     HttpClientModule,
     AdminModule,
-    FormsModule
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return (sessionStorage.getItem("currentUser")? JSON.parse(sessionStorage.getItem("currentUser")).token : null)         
+        }
+      }
+    }),
   ],
   providers: [
     {
