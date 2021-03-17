@@ -23,7 +23,7 @@ export class ProjectsService
       currentUser = JSON.parse(sessionStorage.currentUser);
       headers = headers.set("Authorization", "Bearer " + currentUser.token);
     } */
-    return this.httpClient.get<Project[]>("/api/projects", { headers: headers, responseType: "json" })
+    return this.httpClient.get<Project[]>("/api/projects", { responseType: "json" })
     .pipe(map(
       (data: Project[]) => {
         for (let i = 0; i < data.length; i++)
