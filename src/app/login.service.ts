@@ -20,15 +20,15 @@ export class LoginService
   public Login(loginViewModel: LoginViewModel): Observable<any>
   {
     this.httpClient = new HttpClient(this.httpBackend); //esto tambien
-    return this.httpClient.post<any>("/authenticate", loginViewModel, { responseType: "json" })
-    .pipe(map(user => {      
-      if (user)
-      {
-        console.log("nombre user: " + user.userName);
-        this.currentUserName = user.userName;
-        sessionStorage.currentUser = JSON.stringify(user);
+    return this.httpClient.post<any>("/authenticate", loginViewModel, { responseType: "json", observe: "response" })
+    .pipe(map(response => {      
+      if (response)
+      {        
+        this.currentUserName = response.body.userName;
+        sessionStorage.currentUser = JSON.stringify(response.body);
+        sessionStorage.XSRFRequestToken = response.headers.get("XSRF-REQUEST-TOKEN");
       }
-      return user;
+      return response.body;
     }));
   }
 
