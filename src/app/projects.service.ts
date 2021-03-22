@@ -15,20 +15,12 @@ export class ProjectsService
 
   getAllProjects() : Observable<Project[]>
   {
-    /* var currentUser = { token: "" };
-    var headers = new HttpHeaders();
-    headers = headers.set("Authorization", "Bearer ");
-    if (sessionStorage.currentUser != null)
-    {
-      currentUser = JSON.parse(sessionStorage.currentUser);
-      headers = headers.set("Authorization", "Bearer " + currentUser.token);
-    } */
     return this.httpClient.get<Project[]>("/api/projects", { responseType: "json" })
     .pipe(map(
       (data: Project[]) => {
         for (let i = 0; i < data.length; i++)
         {
-          data[i].teamSize = data[i].teamSize * 100;
+          //data[i].teamSize = data[i].teamSize * 100;
         }
         return data;
       }
