@@ -77,13 +77,13 @@
           <div class="form-group row">
             <label for="txtNewProjectID" class="col-sm-4 col-form-label">Project ID</label>
             <div class="col-sm-8">
-              <input type="text" id="txtNewProjectID" style="width:130px" class="form-control" placeholder="Project ID" name="ProjectID" [(ngModel)]="newProject.projectID" required="required" pattern="^[0-9]*$" appProjectIDUniqueValidator #newProjectID="ngModel" [ngClass]="{ 'is-invalid': newProjectID.invalid && (newProjectID.dirty || newProjectID.touched || newForm.submitted), 'is-valid': newProjectID.valid && (newProjectID.dirty || newProjectID.touched || newForm.submitted) }">
+              <input type="text" id="txtNewProjectID" style="width:130px" class="form-control" placeholder="Project ID" name="ProjectID" [(ngModel)]="newProject.projectID" required="required" pattern="^[0-9]*$" appProjectIDUniqueValidator #newProjectID="ngModel" [ngClass]="{ 'is-invalid': newProjectID.invalid && (newProjectID.dirty || newProjectID.touched || newForm.submitted), 'is-valid': newProjectID.valid && (newProjectID.dirty || newProjectID.touched || newForm.submitted) }"> <!-- appProjectIDUniqueValidator iba en este commit (video 54) pero lo puse antes-->
 
               <span class="text-danger" *ngIf="newProjectID.invalid && (newProjectID.dirty || newProjectID.touched || newForm.submitted) && newProjectID.errors?.required">Project ID can't be blank</span>
 
               <span class="text-danger" *ngIf="newProjectID.invalid && (newProjectID.dirty || newProjectID.touched || newForm.submitted) && newProjectID.errors?.pattern">Project ID should contain numbers only</span>
 
-              <span class="text-danger" *ngIf="newProjectID.invalid && (newProjectID.dirty || newProjectID.touched || newForm.submitted) && newProjectID.errors?.uniqueProjectID">Duplicate Project ID</span>
+              <span class="text-danger" *ngIf="newProjectID.invalid && (newProjectID.dirty || newProjectID.touched || newForm.submitted) && newProjectID.errors?.uniqueProjectID">Duplicate Project ID</span> <!-- Este span iba en este commit (video 54) pero lo puse antes-->
 
             </div>
           </div>
@@ -190,13 +190,13 @@
           <div class="form-group row">
             <label for="txtEditProjectID" class="col-sm-4 col-form-label">Project ID</label>
             <div class="col-sm-8">
-              <input type="text" id="txtEditProjectID" style="width:130px" class="form-control-plain-text" placeholder="Project ID" name="ProjectID" [(ngModel)]="editProject.projectID" disabled="disabled" required="required" pattern="^[0-9]*$" appProjectIDUniqueValidator #editProjectID="ngModel" [ngClass]="{ 'is-invalid': editProjectID.invalid && (editProjectID.dirty || editProjectID.touched || newForm.submitted), 'is-valid': editProjectID.valid && (editProjectID.dirty || editProjectID.touched || newForm.submitted) }">
+              <input type="text" id="txtEditProjectID" style="width:130px" class="form-control-plain-text" placeholder="Project ID" name="ProjectID" [(ngModel)]="editProject.projectID" disabled="disabled" required="required" pattern="^[0-9]*$" appProjectIDUniqueValidator #editProjectID="ngModel" [ngClass]="{ 'is-invalid': editProjectID.invalid && (editProjectID.dirty || editProjectID.touched || newForm.submitted), 'is-valid': editProjectID.valid && (editProjectID.dirty || editProjectID.touched || newForm.submitted) }"> <!-- appProjectIDUniqueValidator iba en este commit (video 54) pero lo puse antes-->
 
               <span class="text-danger" *ngIf="editProjectID.invalid && (editProjectID.dirty || editProjectID.touched || editForm.submitted) && editProjectID.errors?.required">Project ID can't be blank</span>
 
               <span class="text-danger" *ngIf="editProjectID.invalid && (editProjectID.dirty || editProjectID.touched || editForm.submitted) && editProjectID.errors?.pattern">Project ID should contain numbers only</span>
 
-              <span class="text-danger" *ngIf="editProjectID.invalid && (editProjectID.dirty || editProjectID.touched || editForm.submitted) && editProjectID.errors?.uniqueProjectID">Duplicate Project ID</span>
+              <span class="text-danger" *ngIf="editProjectID.invalid && (editProjectID.dirty || editProjectID.touched || editForm.submitted) && editProjectID.errors?.uniqueProjectID">Duplicate Project ID</span> <!-- Este span iba en este commit (video 54) pero lo puse antes-->
 
             </div>
           </div>
