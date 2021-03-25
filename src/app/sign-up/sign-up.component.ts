@@ -11,7 +11,7 @@ import { Country } from '../country';
 export class SignUpComponent implements OnInit
 {
   signUpForm: FormGroup;
-  genders = [ "male", "female" ];
+  genders = ["male", "female"];
   countries: Country[] = []
 
   constructor(private countriesService: CountriesService)
@@ -23,8 +23,11 @@ export class SignUpComponent implements OnInit
     this.countries = this.countriesService.getCountries();
 
     this.signUpForm = new FormGroup({
-      firstName: new FormControl(null),
-      lastName: new FormControl(null),
+      personName: new FormGroup({
+        firstName: new FormControl(null),
+        lastName: new FormControl(null),
+      }),
+      
       email: new FormControl(null),
       mobile: new FormControl(null),
       dateOfBirth: new FormControl(null),
@@ -33,13 +36,15 @@ export class SignUpComponent implements OnInit
       receiveNewsLetters: new FormControl(null),
     });
 
-    this.signUpForm.valueChanges.subscribe((value) => {
-      console.log(value);
+    this.signUpForm.valueChanges.subscribe((value) =>
+    {
+      //console.log(value);
     });
   }
 
-  onSubmitClick() {
-     //Display current form value
+  onSubmitClick()
+  {
+    //Display current form value
     //console.log(this.signUpForm.value);
 
     //setValue
@@ -54,18 +59,23 @@ export class SignUpComponent implements OnInit
     //   receiveNewsLetters: true
     // });
 
-    //patchValue pone valores en los campos que le paso
-    this.signUpForm.patchValue({
-      firstName: "Adam",
-      lastName: "Smith",
-      email: "smith@gmail.com"
-    });    
-
-    //resetea todo menos los campos que le paso
-    // this.signUpForm.reset({
+    //patchValue
+    // this.signUpForm.patchValue({
     //   firstName: "Adam",
     //   lastName: "Smith",
     //   email: "smith@gmail.com"
-    //
+    // });
+
+    //reset
+    this.signUpForm.reset();
+
+    //reset with Parameters
+    this.signUpForm.reset({ 
+      personName: {
+        firstName: "Adam",
+        lastName: "Smith",
+      },      
+      email: "smith@gmail.com"
+    });
   }
 }
