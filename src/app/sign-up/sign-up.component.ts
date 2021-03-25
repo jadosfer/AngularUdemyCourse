@@ -37,4 +37,35 @@ export class SignUpComponent implements OnInit
       console.log(value);
     });
   }
+
+  onSubmitClick() {
+     //Display current form value
+    //console.log(this.signUpForm.value);
+
+    //setValue
+    // this.signUpForm.setValue({
+    //   firstName: "Adam",
+    //   lastName: "Smith",
+    //   email: "smith@gmail.com",
+    //   mobile: "9876543210",
+    //   dateOfBirth: "2020-01-01",
+    //   gender: "male",
+    //   countryID: 3,
+    //   receiveNewsLetters: true
+    // });
+
+    //patchValue pone valores en los campos que le paso
+    this.signUpForm.patchValue({
+      firstName: "Adam",
+      lastName: "Smith",
+      email: "smith@gmail.com"
+    });    
+
+    //resetea todo menos los campos que le paso
+    // this.signUpForm.reset({
+    //   firstName: "Adam",
+    //   lastName: "Smith",
+    //   email: "smith@gmail.com"
+    //
+  }
 }
