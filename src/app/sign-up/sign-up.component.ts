@@ -9,6 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class SignUpComponent implements OnInit
 {
   signUpForm: FormGroup;
+  genders = ["male", "female"];
 
   constructor() { }
 
