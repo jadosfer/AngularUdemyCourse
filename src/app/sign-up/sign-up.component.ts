@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import {CountriesService} from '../countries.service';
+import { CountriesService } from '../countries.service';
 import { Country } from '../country';
 
 @Component({
@@ -11,10 +11,12 @@ import { Country } from '../country';
 export class SignUpComponent implements OnInit
 {
   signUpForm: FormGroup;
-  genders = ["male", "female"];
-  countries: Country[] = [];
+  genders = [ "male", "female" ];
+  countries: Country[] = []
 
-  constructor(private countriesService: CountriesService) { }
+  constructor(private countriesService: CountriesService)
+  {
+  }
 
   ngOnInit()
   {
@@ -27,7 +29,8 @@ export class SignUpComponent implements OnInit
       mobile: new FormControl(null),
       dateOfBirth: new FormControl(null),
       gender: new FormControl(null),
-      countryID: new FormControl(null)
+      countryID: new FormControl(null),
+      receiveNewsLetters: new FormControl(null),
     });
   }
 }
