@@ -16,9 +16,13 @@
                 <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-control" formControlName="firstName"  [ngClass]="{
                     'is-invalid': signUpForm.get('personName.firstName').invalid && (signUpForm.get('personName.firstName').dirty || signUpForm.get('personName.firstName').touched || submitted),
     
-                    'is-valid': signUpForm.get('personName.firstName').valid && (signUpForm.get('personName.firstName').dirty || signUpForm.get('personName.firstName').touched || submitted)}">
-    
+                    'is-valid': signUpForm.get('personName.firstName').valid && (signUpForm.get('personName.firstName').dirty || signUpForm.get('personName.firstName').touched || submitted)}">                    
+
+                <span class="text-danger" *ngIf="signUpForm.get('personName.firstName').invalid && (signUpForm.get('personName.firstName').dirty || signUpForm.get('personName.firstName').touched || submitted) && signUpForm.get('personName.firstName').errors?.required">First name can't be blank</span>
+
+                <span class="text-danger" *ngIf="signUpForm.get('personName.firstName').invalid && (signUpForm.get('personName.firstName').dirty || signUpForm.get('personName.firstName').touched || submitted) && signUpForm.get('personName.firstName').errors?.minlength">First name should contain at least 2 characters</span>
               </div>
+
             </div>
   
             <div class="form-group form-row" formGroupName="personName">
@@ -28,6 +32,9 @@
                     'is-invalid': signUpForm.get('personName.lastName').invalid && (signUpForm.get('personName.lastName').dirty || signUpForm.get('personName.lastName').touched || submitted),
     
                     'is-valid': signUpForm.get('personName.lastName').valid && (signUpForm.get('personName.lastName').dirty || signUpForm.get('personName.lastName').touched || submitted) }">
+                    <span class="text-danger" *ngIf="signUpForm.get('personName.lastName').invalid && (signUpForm.get('personName.lastName').dirty || signUpForm.get('personName.lastName').touched || submitted) && signUpForm.get('personName.lastName').errors?.required">Last name can't be blank</span>
+
+              <span class="text-danger" *ngIf="signUpForm.get('personName.lastName').invalid && (signUpForm.get('personName.lastName').dirty || signUpForm.get('personName.lastName').touched || submitted) && signUpForm.get('personName.lastName').errors?.minlength">Last name should contain at least 2 characters</span>
     
               </div>
             </div>
@@ -39,6 +46,10 @@
                     'is-invalid': signUpForm.get('email').invalid && (signUpForm.get('email').dirty || signUpForm.get('email').touched || submitted),
     
                     'is-valid': signUpForm.get('email').valid && (signUpForm.get('email').dirty || signUpForm.get('email').touched || submitted) }">
+
+                    <span class="text-danger" *ngIf="signUpForm.get('email').invalid && (signUpForm.get('email').dirty || signUpForm.get('email').touched || submitted) && signUpForm.get('email').errors?.required">Email can't be blank</span>
+
+                    <span class="text-danger" *ngIf="signUpForm.get('email').invalid && (signUpForm.get('email').dirty || signUpForm.get('email').touched || submitted) && signUpForm.get('email').errors?.email">Email is invalid</span>
     
               </div>
             </div>
@@ -50,6 +61,10 @@
                     'is-invalid': signUpForm.get('mobile').invalid && (signUpForm.get('mobile').dirty || signUpForm.get('mobile').touched || submitted),
     
                     'is-valid': signUpForm.get('mobile').valid && (signUpForm.get('mobile').dirty || signUpForm.get('mobile').touched || submitted) }">
+
+                    <span class="text-danger" *ngIf="signUpForm.get('mobile').invalid && (signUpForm.get('mobile').dirty || signUpForm.get('mobile').touched || submitted) && signUpForm.get('mobile').errors?.required">Mobile can't be blank</span>
+
+                    <span class="text-danger" *ngIf="signUpForm.get('mobile').invalid && (signUpForm.get('mobile').dirty || signUpForm.get('mobile').touched || submitted) && signUpForm.get('mobile').errors?.pattern">Mobile is invalid</span>
     
               </div>
             </div>
@@ -61,6 +76,9 @@
                     'is-invalid': signUpForm.get('dateOfBirth').invalid && (signUpForm.get('dateOfBirth').dirty || signUpForm.get('dateOfBirth').touched || submitted),
     
                     'is-valid': signUpForm.get('dateOfBirth').valid && (signUpForm.get('dateOfBirth').dirty || signUpForm.get('dateOfBirth').touched || submitted) }">
+
+                    
+              <span class="text-danger" *ngIf="signUpForm.get('dateOfBirth').invalid && (signUpForm.get('dateOfBirth').dirty || signUpForm.get('dateOfBirth').touched || submitted) && signUpForm.get('dateOfBirth').errors?.required">Date of Birth can't be blank</span>
     
               </div>
             </div>
@@ -73,6 +91,9 @@
                   <input type="radio" name="gender" [id]="gender" [value]="gender" class="form-check-input" formControlName="gender">
                   <label [for]="gender" class="form-check-label">{{gender}}</label>                  
                 </div>
+                <span class="text-danger" *ngIf="signUpForm.get('gender').invalid && (signUpForm.get('gender').dirty || signUpForm.get('gender').touched || submitted) && signUpForm.get('gender').errors?.required">Please select gender</span>
+
+
   
               </div>
             </div>
@@ -89,6 +110,9 @@
                       {{country.countryName}}
                     </option>
                   </select>
+
+                  <span class="text-danger" *ngIf="signUpForm.get('countryID').invalid && (signUpForm.get('countryID').dirty || signUpForm.get('countryID').touched || submitted) && signUpForm.get('countryID').errors?.required">Please select country</span>
+
                 </div>
               </div>
     

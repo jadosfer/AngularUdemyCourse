@@ -30,7 +30,7 @@ export class SignUpComponent implements OnInit
       }),
       
       email: [null, [ Validators.required, Validators.email]],
-      mobile: [null, [ Validators.required, Validators.pattern(/^[789]\d{9}$/)]],
+      mobile: [null, [ Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]],
       dateOfBirth: [null, [ Validators.required]],
       gender: [null, [ Validators.required]],
       countryID: [null, [ Validators.required]],
