@@ -87,7 +87,7 @@
             </div>
 
             <div class="form-group form-row">
-                <label for="password" class="col-md-4 col-form-label">Date of Birth:</label>
+                <label for="password" class="col-md-4 col-form-label">Password:</label>
                 <div class="col-md-8">
                   <input type="password" name="password" id="password" placeholder="password" class="form-control" formControlName="password" [ngClass]="{
                       'is-invalid': signUpForm.get('password').invalid && (signUpForm.get('password').dirty || signUpForm.get('password').touched || submitted),
@@ -95,7 +95,7 @@
                       'is-valid': signUpForm.get('password').valid && (signUpForm.get('password').dirty || signUpForm.get('password').touched || submitted) }">
   
                       
-                <span class="text-danger" *ngIf="signUpForm.get('password').invalid && (signUpForm.get('password').dirty || signUpForm.get('password').touched || submitted) && signUpForm.get('password').errors?.required">Password required</span>  
+                <span class="text-danger" *ngIf="signUpForm.get('password').invalid && (signUpForm.get('password').dirty || signUpForm.get('password').touched || submitted) && signUpForm.get('password').errors?.required">Password can't be blank</span>  
                 
   
       
@@ -103,17 +103,17 @@
               </div>
 
             <div class="form-group form-row">
-                <label for="dateOfBirth" class="col-md-4 col-form-label">Date of Birth:</label>
+                <label for="confirmPassword" class="col-md-4 col-form-label">Confirm Password:</label>
                 <div class="col-md-8">
-                  <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Password confirm" class="form-control" formControlName="passwordConfirm" [ngClass]="{
-                      'is-invalid': signUpForm.get('passwordConfirm').invalid && (signUpForm.get('passwordConfirm').dirty || signUpForm.get('passwordConfirm').touched || submitted),
+                  <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="form-control" formControlName="confirmPassword" [ngClass]="{
+                      'is-invalid': signUpForm.get('confirmPassword').invalid && (signUpForm.get('confirmPassword').dirty || signUpForm.get('confirmPassword').touched || submitted),
       
-                      'is-valid': signUpForm.get('passwordConfirm').valid && (signUpForm.get('passwordConfirm').dirty || signUpForm.get('passwordConfirm').touched || submitted) }">
+                      'is-valid': signUpForm.get('confirmPassword').valid && (signUpForm.get('confirmPassword').dirty || signUpForm.get('confirmPassword').touched || submitted) }">
   
                       
-                <span class="text-danger" *ngIf="signUpForm.get('passwordConfirm').invalid && (signUpForm.get('passwordConfirm').dirty || signUpForm.get('passwordConfirm').touched || submitted) && signUpForm.get('passwordConfirm').errors?.required">Password can't be blank</span>
+                <span class="text-danger" *ngIf="signUpForm.get('confirmPassword').invalid && (signUpForm.get('confirmPassword').dirty || signUpForm.get('confirmPassword').touched || submitted) && signUpForm.get('confirmPassword').errors?.required">Password can't be blank</span>
   
-                <span class="text-danger" *ngIf="signUpForm.get('passwordConfirm').invalid && (signUpForm.get('passwordConfirm').dirty || signUpForm.get('passwordConfirm').touched || submitted) && signUpForm.get('passwordConfirm').errors.confirmedValidator">Password and Confirm Password must be match</span>
+                <span class="text-danger" *ngIf="signUpForm.get('confirmPassword').invalid && (signUpForm.get('confirmPassword').dirty || signUpForm.get('confirmPassword').touched || submitted) && signUpForm.get('confirmPassword').errors.confirmedValidator">Password and Confirm Password must be match</span>
   
       
                 </div>
@@ -206,6 +206,7 @@
   
           <div class="card-footer">
             <button class="btn btn-success float-right">Create Account</button>
+            <div class="text-danger">{{registerError}}</div>
           </div>
   
         </div>

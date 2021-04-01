@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { LoginViewModel } from './login-view-model';
 import { map } from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import { SignUpViewModel } from './sign-up-view-model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,21 @@ export class LoginService
   {
     this.httpClient = new HttpClient(this.httpBackend); //esto tambien
     return this.httpClient.post<any>("/authenticate", loginViewModel, { responseType: "json", observe: "response" })
+    .pipe(map(response => {      
+      if (response)
+      {        
+        this.currentUserName = response.body.userName;
+        sessionStorage.currentUser = JSON.stringify(response.body);
+        sessionStorage.XSRFRequestToken = response.headers.get("XSRF-REQUEST-TOKEN");
+      }
+      return response.body;
+    }));
+  }
+
+  public Register(signUpViewModel: SignUpViewModel): Observable<any>
+  {
+    this.httpClient = new HttpClient(this.httpBackend); //esto tambien
+    return this.httpClient.post<any>("/register", signUpViewModel, { responseType: "json", observe: "response" })
     .pipe(map(response => {      
       if (response)
       {        

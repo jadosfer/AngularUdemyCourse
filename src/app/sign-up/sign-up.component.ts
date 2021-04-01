@@ -5,6 +5,7 @@ import { CountriesService } from '../countries.service';
 import { Country } from '../country';
 import { CustomValidatorsService } from '../custom-validators.service';
 import { LoginService } from '../login.service';
+import { SignUpViewModel } from '../sign-up-view-model';
 
 
 @Component({
@@ -17,15 +18,19 @@ export class SignUpComponent implements OnInit
   signUpForm: FormGroup;
   genders = ["male", "female"];
   countries: Country[] = []
-  submitted: boolean = false;
+  submitted: boolean = false; //lo agregué  yo para poder determinar el submitted
+  registerError: string = null;
 
   constructor(private countriesService: CountriesService, private formBuilder: FormBuilder, private customValidatorsService: CustomValidatorsService, private loginService: LoginService, private router: Router)
   {
   }
 
   ngOnInit()
-  {
-    this.countries = this.countriesService.getCountries();
+  {    
+    this.countriesService.getCountries().subscribe((response) =>
+    {
+      this.countries = response;
+    });
 
     this.signUpForm = this.formBuilder.group({
       personName: this.formBuilder.group({
@@ -39,7 +44,11 @@ export class SignUpComponent implements OnInit
       gender: [null, [ Validators.required]],
       countryID: [null, [ Validators.required]],
       receiveNewsLetters: [null],
-      skills: this.formBuilder.array([])
+      skills: this.formBuilder.array([]),
+      password: [null, [Validators.required]],
+      confirmPassword: [null, [Validators.required]]
+    }, { 
+      validator: this.customValidatorsService.confirmedValidator('password', 'confirmPassword')    
     });
 
     this.signUpForm.valueChanges.subscribe((value) =>
@@ -48,42 +57,32 @@ export class SignUpComponent implements OnInit
     });
   }
 
+
+
   onSubmitClick()
   {
     //Display current form value
     this.signUpForm["submitted"] = true;
-    this.submitted = true;
+    this.submitted = true; //esto lo agregué porque no funcionaba el submited hecho como arriba
     console.log(this.signUpForm);
 
-    //setValue
-    // this.signUpForm.setValue({
-    //   firstName: "Adam",
-    //   lastName: "Smith",
-    //   email: "smith@gmail.com",
-    //   mobile: "9876543210",
-    //   dateOfBirth: "2020-01-01",
-    //   gender: "male",
-    //   countryID: 3,
-    //   receiveNewsLetters: true
-    // });
-
-    //patchValue
-    // this.signUpForm.patchValue({
-    //   firstName: "Adam",
-    //   lastName: "Smith",
-    //   email: "smith@gmail.com"
-    // });
-
-    //reset
-    //this.signUpForm.reset();
-
-    //reset with Parameters
-    // this.signUpForm.reset({
-    //   firstName: "Adam",
-    //   lastName: "Smith",
-    //   email: "smith@gmail.com"
-    // });
+    if (this.signUpForm.valid)
+    {
+      var signUpVieModel = this.signUpForm.value as SignUpViewModel;
+      this.loginService.Register(signUpVieModel).subscribe(
+        (response) => {
+          this.router.navigate( [ "tasks" ]);
+        },
+        (error) => {
+          console.log(error);
+          this.registerError = "Unable to submit";
+        });
+    }
   }
+
+
+
+
 
   onAddSkill()
   {
