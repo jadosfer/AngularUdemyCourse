@@ -6,6 +6,8 @@ import { ClientLocationsService } from '../../client-locations.service';
 import { NgForm } from '@angular/forms';
 import * as $ from "jquery";
 import { ProjectComponent } from '../project/project.component';
+import { ViewChildren } from '@angular/core';
+import { QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-projects',
@@ -182,10 +184,15 @@ export class ProjectsComponent implements OnInit
       });
   }
 
-  @ViewChild("prj") prj: ProjectComponent;
+@ViewChildren("prj") prj: QueryList<ProjectComponent>;
 
   onHideShowDetails(event)
   {
-    this.prj.toggleDetails();
+    let projs = this.prj.toArray();
+    for (let i = 0; i < projs.length; i++)
+    {
+      projs[i].toggleDetails();
+    }
   }
 }
+
