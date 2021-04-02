@@ -5,7 +5,6 @@ import { ClientLocation } from '../../client-location';
 import { ClientLocationsService } from '../../client-locations.service';
 import { NgForm } from '@angular/forms';
 import * as $ from "jquery";
-import { ProjectComponent } from '../project/project.component';
 
 @Component({
   selector: 'app-projects',

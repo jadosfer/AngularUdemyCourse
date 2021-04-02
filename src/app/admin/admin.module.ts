@@ -11,7 +11,6 @@ import { ClientLocationStatusValidatorDirective } from '../client-location-statu
 import { ProjectIDUniqueValidatorDirective } from '../project-idunique-validator.directive';
 import { ProjectComponent } from './project/project.component';
 
-
 @NgModule({
   declarations: [
     DashboardComponent,
