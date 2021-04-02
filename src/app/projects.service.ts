@@ -13,6 +13,13 @@ export class ProjectsService
   {
   }
 
+  hideDetails: boolean = false;
+
+  toggleDetails()
+  {
+    this.hideDetails = !this.hideDetails;
+  }
+
   getAllProjects() : Observable<Project[]>
   {
     return this.httpClient.get<Project[]>("/api/projects", { responseType: "json" })

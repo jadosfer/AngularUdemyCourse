@@ -184,15 +184,9 @@ export class ProjectsComponent implements OnInit
       });
   }
 
-@ViewChildren("prj") prj: QueryList<ProjectComponent>;
-
   onHideShowDetails(event)
   {
-    let projs = this.prj.toArray();
-    for (let i = 0; i < projs.length; i++)
-    {
-      projs[i].toggleDetails();
-    }
+    this.projectsService.toggleDetails();
   }
 }
 
