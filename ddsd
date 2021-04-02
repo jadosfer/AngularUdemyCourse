@@ -1,0 +1,294 @@
+[33mcommit 6a6537751ea58f83ef9f92cda081486d81c59f0c[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Apr 1 15:19:00 2021 -0300
+
+    070 Async Validations with REST API Call
+
+[33mcommit 1d4e17117dc6ff8c4ca4d1a18b82de3b4f37b7e7[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Apr 1 11:30:46 2021 -0300
+
+    069 08.15.Submitting-Form-with-REST-API-Call
+
+[33mcommit 9849d870e7e3ac88b40e66399df5e429e796ac21[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Mon Mar 29 17:43:14 2021 -0300
+
+    068 Cross Field Validations
+
+[33mcommit db63b7b796ee5d2cbf7bebe2025fd41f274b8974[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sat Mar 27 20:15:58 2021 -0300
+
+    067 Custom Validations
+
+[33mcommit a0efa5f53ceaf4928a3f776626ea3e49df778a63[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sat Mar 27 18:14:21 2021 -0300
+
+    066 Add Validation Error Messages
+
+[33mcommit e97f0d638b9542392c7e1c4533acffd5e21b2f8b[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Mar 25 23:34:40 2021 -0300
+
+    065 Validations in Reactive Forms
+
+[33mcommit 0e6f6930161892a68325a642d8f470f83d1c6605[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Mar 25 20:02:11 2021 -0300
+
+    064 Form Builder
+
+[33mcommit 6e8aeac43915cea90bc9191b866680d240036f87[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Mar 25 16:54:41 2021 -0300
+
+    063 Form Arrays
+
+[33mcommit 54eea3c74f897f700cede36213a49fcf5bfaf815[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Mar 25 15:29:14 2021 -0300
+
+    062 Nested Form Groups
+
+[33mcommit 061c24d41a3b782c8aa43a7133c448d4c1f859d1[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Mar 25 14:26:21 2021 -0300
+
+    061 setValue, patchValue, reset
+
+[33mcommit 5b43c8a751eb9edaa43ae169823e497a7f3cebee[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Mar 25 12:29:36 2021 -0300
+
+    060 valueChanges Observable
+
+[33mcommit 51c87983dba759c939e61ea32c3ae018c6d4cc67[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Wed Mar 24 23:18:39 2021 -0300
+
+    059 CheckBox
+
+[33mcommit f8b197cb609474cf9627bc5a7c23309d4b764ea7[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Wed Mar 24 22:59:09 2021 -0300
+
+    058 Dynamic DropDownList
+
+[33mcommit ae82b58479fa82f1fb6f92155d1943a357fce70c[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Wed Mar 24 21:31:28 2021 -0300
+
+    057 Dynamic Radio Buttons
+
+[33mcommit 58bdf8c483418b82fa2d7142cfd44bbbd48162c7[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Wed Mar 24 20:51:23 2021 -0300
+
+    056 Radio Buttons
+
+[33mcommit 747d0ab929af234199ce044c4c528d7602c4c216[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Wed Mar 24 19:59:38 2021 -0300
+
+    055 Understand & Create Reactive Forms
+
+[33mcommit 64a66db36a5cbccf12475944fc291d89bdedd6c3[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Tue Mar 23 18:15:05 2021 -0300
+
+    054 Async Custom Validations in Template Driven Forms with REST-API Calls
+
+[33mcommit 2d3814f20a8b6be2de3736dcc80fa383b87b8e64[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Tue Mar 23 17:20:34 2021 -0300
+
+    053 Cross Field Custom Validations in Template Driven Forms
+
+[33mcommit 61b13c3e1dd964fa38d693fb8c2f67e5a69ec658[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Tue Mar 23 16:30:15 2021 -0300
+
+    052 Custom Validations in Template Driven Forms
+
+[33mcommit de83376f3ece5896038760ef26a3a79048e339a0[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Mon Mar 22 00:39:20 2021 -0300
+
+    051 Validations in Template Driven Forms
+
+[33mcommit 9b704631d0d6dce87f2109afa38a896c5a0b626c[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sun Mar 21 21:07:52 2021 -0300
+
+    050 CheckBox, RadioButton, DropDownList
+
+[33mcommit fca4af2db32140ebc3316238014dff1ef75e5d3f[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sat Mar 20 18:00:32 2021 -0300
+
+    049 Prevent XSS (Cross Site Scripting)
+
+[33mcommit fa29dda2c25bfbe6946113e7e3aa9c4530aad8fe[m
+Merge: 9cb4e5a 8e97a39
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sat Mar 20 15:21:05 2021 -0300
+
+    Merge branch 'master' of https://github.com/jadosfer/AngularUdemyCourse
+
+[33mcommit 9cb4e5aceab3a8ec3edd03a3b708741ad29284ac[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sat Mar 20 15:20:21 2021 -0300
+
+    048 Prevent XSRF (Cross Site Request Forgery)
+
+[33mcommit 8e97a39af0e2d69a8e67948e47ab0df5bd435fd4[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sat Mar 20 12:33:31 2021 -0300
+
+    047 Role Based Authentication
+
+[33mcommit 3bad4ac0c3bcfd6db1bda4d66cebcc3f1b6cfd79[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Wed Mar 17 15:05:05 2021 -0300
+
+    046 CanActivate Guard
+
+[33mcommit 938f9a54fc86b613e86906981b993ed30cd7b50b[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Wed Mar 17 14:06:58 2021 -0300
+
+    045 Cat 401 UnAuthorized Responses using Interceptors
+
+[33mcommit 3b155cd48596d02ce5d20eab1374a70ff50ccdfb[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Wed Mar 17 12:29:45 2021 -0300
+
+    044 Http Interceptors
+
+[33mcommit 262baecd8a701d0c72211d17e676f538bf395ffd[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Mon Mar 15 19:57:29 2021 -0300
+
+    043 JWT Authentication in Angular
+
+[33mcommit cf9a85b4184f7945087c953201f4c9e0314e1b42[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sun Mar 14 22:33:18 2021 -0300
+
+    040 User Authentication in Angular
+
+[33mcommit 52bdde9f710466554b6e55b4f4380935dae9e53f[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Mar 11 15:05:05 2021 -0300
+
+    036 RxJS Observable - Map
+
+[33mcommit cb0bbb3b6722f7d210e14e16ffb435f8a29d4dd1[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Mar 11 13:56:24 2021 -0300
+
+    035 Search [Asp.Net Core MVC]
+
+[33mcommit 77343d66d2d627d3c1400071b3ba61eafb1225af[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Thu Mar 11 10:47:06 2021 -0300
+
+    034 Delete [Asp.Net Core MVC]
+
+[33mcommit c0ffb4514ab9dc1b67e295a1e8f426fb974a078a[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Wed Mar 10 23:42:58 2021 -0300
+
+    033 Put [Asp.Net Core MVC]
+
+[33mcommit 8b5b36f34f21404bd47c8f1a51872efd19d74daa[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Wed Mar 10 22:49:20 2021 -0300
+
+    032 Post [Asp.Net Core MVC]
+
+[33mcommit 65fa3de064faf462c0b92ae53ff83d1848ec3639[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Tue Mar 9 18:54:03 2021 -0300
+
+    031 Get [Asp.Net Core MVC]
+
+[33mcommit 3d7b3bd2c75f435ebe0608b814d7617f0ccc9af9[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Mon Mar 8 14:39:38 2021 -0300
+
+    028 Services & DI
+
+[33mcommit 654fbf4164d5248cd4d5b0808c25352d5d05d4c5[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Mon Mar 8 10:00:10 2021 -0300
+
+    027 Modules
+
+[33mcommit 5ed7eb47845381d9b5f64d599c53fd3536b6d819[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Mon Mar 8 08:46:43 2021 -0300
+
+    026 ngSwitch
+
+[33mcommit cc6a2cfa2db539080f603adc0a2a87f71db73a40[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sun Mar 7 17:31:43 2021 -0300
+
+    025 Built-in Pipes
+
+[33mcommit 57a871e256e509e11e48089b60551e63dbdb62cd[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sun Mar 7 14:55:15 2021 -0300
+
+    024 ngIf & ngIf-else & ng-template
+
+[33mcommit ebee294afa0bc9ae5d1a3d632abe8979074715f5[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sun Mar 7 14:38:26 2021 -0300
+
+    023 Handle Dynamic Style & ngClass
+
+[33mcommit 01fa4aae5af5189921ca2e8e8db7e43f77919fbc[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sun Mar 7 14:11:57 2021 -0300
+
+    022 Data Bindings
+
+[33mcommit 5a98b2e908518ab9345660736f63811d8eb882d2[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sun Mar 7 12:24:32 2021 -0300
+
+    021 ngFor & Nested ngFor
+
+[33mcommit b9fde59395481902d06112b0c675dbfb1b74a237[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Sat Mar 6 21:31:53 2021 -0300
+
+    020 Create Dashboard
+
+[33mcommit 21ffb6cd4ed555a75b6831a74b51c563a359ee0e[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Fri Mar 5 18:59:47 2021 -0300
+
+    019 Create Basic Routing
+
+[33mcommit 45ec8f01924504d37cd41b30e738d02bd3cb471d[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Fri Mar 5 17:59:43 2021 -0300
+
+    018 Create & Nest Components
+
+[33mcommit e7c782f30bc13b499684cff56e0e09a0a7fc155a[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Fri Mar 5 15:09:24 2021 -0300
+
+    Add Bootstrap and Bootstrap  NavBar
+
+[33mcommit f6cebd15b6a7428d7d852bacb129ea9da26bbc10[m
+Author: javierfm <jadosfer@hotmail.com>
+Date:   Fri Mar 5 11:22:14 2021 -0300
+
+    initial commit
