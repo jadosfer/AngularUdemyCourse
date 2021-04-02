@@ -14,6 +14,8 @@ export class ProjectComponent implements OnInit
   @Output() editClick = new EventEmitter();
   @Output() deleteClick = new EventEmitter();
 
+  hideDetails: boolean = false;
+
   constructor()
   {
   }
@@ -30,6 +32,11 @@ export class ProjectComponent implements OnInit
   onDeleteClick(event, i)
   {
     this.deleteClick.emit({ event, i});
+  }
+
+  toggleDetails()
+  {
+    this.hideDetails = !this.hideDetails;
   }
 }
 
