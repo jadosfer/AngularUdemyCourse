@@ -15,15 +15,13 @@ private MyObservers: Observer<boolean>[] = [];
 
   constructor(private httpClient : HttpClient)
   {
-    this.MySubject = new BehaviorSubject<boolean>(false); // requiere un valor inicial (en este caso false)
+    this.MySubject = new BehaviorSubject<boolean>(false); 
   } 
 
-  //hideDetails: boolean = false; // con un BehaviorSubject no necesitamos crer una propiedad "hideDetails"
 
-  toggleDetails()
-  {
-    //this.hideDetails = !this.hideDetails;  //esto lo eliminamos tambien
-    this.MySubject.next(!this.MySubject.value);  //simplemente niego el valor previo
+  toggleDetails()  {
+   
+    this.MySubject.next(!this.MySubject.value);  
   }
 
 

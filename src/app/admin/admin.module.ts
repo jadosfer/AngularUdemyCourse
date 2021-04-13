@@ -10,6 +10,7 @@ import { TeamSizeValidatorDirective } from '../team-size-validator.directive';
 import { ClientLocationStatusValidatorDirective } from '../client-location-status-validator.directive';
 import { ProjectIDUniqueValidatorDirective } from '../project-idunique-validator.directive';
 import { ProjectComponent } from './project/project.component';
+import { CheckBoxPrinterComponent } from './check-box-printer/check-box-printer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProjectComponent } from './project/project.component';
     TeamSizeValidatorDirective,
     ClientLocationStatusValidatorDirective,
     ProjectIDUniqueValidatorDirective,
-    ProjectComponent
+    ProjectComponent,
+    CheckBoxPrinterComponent
   ],
   imports: [ CommonModule, FormsModule ],
   exports: [ DashboardComponent, MyProfileComponent, AboutComponent, ProjectsComponent, TeamSizeValidatorDirective, ClientLocationStatusValidatorDirective, ProjectIDUniqueValidatorDirective],
