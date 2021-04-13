@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable, Observer } from 'rxjs';
+import { BehaviorSubject, Observable, Observer } from 'rxjs';
 import { Project } from './project';
 import { map } from "rxjs/operators";
 import { Subject } from 'rxjs';
@@ -10,20 +10,20 @@ import { Subject } from 'rxjs';
 })
 export class ProjectsService
 {
-public MySubject: Subject<boolean>;
+public MySubject: BehaviorSubject<boolean>;
 private MyObservers: Observer<boolean>[] = [];
 
   constructor(private httpClient : HttpClient)
   {
-    this.MySubject = new Subject<boolean>();
+    this.MySubject = new BehaviorSubject<boolean>(false); // requiere un valor inicial (en este caso false)
   } 
 
-  hideDetails: boolean = false;
+  //hideDetails: boolean = false; // con un BehaviorSubject no necesitamos crer una propiedad "hideDetails"
 
   toggleDetails()
   {
-    this.hideDetails = !this.hideDetails;
-    this.MySubject.next(this.hideDetails)
+    //this.hideDetails = !this.hideDetails;  //esto lo eliminamos tambien
+    this.MySubject.next(!this.MySubject.value);  //simplemente niego el valor previo
   }
 
 
