@@ -3,20 +3,19 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, Observer } from 'rxjs';
 import { Project } from './project';
 import { map } from "rxjs/operators";
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService
 {
-public MyObservable: Observable<boolean>;
+public MySubject: Subject<boolean>;
 private MyObservers: Observer<boolean>[] = [];
 
   constructor(private httpClient : HttpClient)
   {
-    this.MyObservable = Observable.create((observer: Observer<boolean>)=>{
-      this.MyObservers.push(observer);
-    });
+    this.MySubject = new Subject<boolean>();
   } 
 
   hideDetails: boolean = false;
@@ -24,9 +23,7 @@ private MyObservers: Observer<boolean>[] = [];
   toggleDetails()
   {
     this.hideDetails = !this.hideDetails;
-    for (let i=0;i<this.MyObservers.length;i++) {
-      this.MyObservers[i].next(this.hideDetails);
-    }
+    this.MySubject.next(this.hideDetails)
   }
 
 
