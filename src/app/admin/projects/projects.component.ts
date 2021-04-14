@@ -53,6 +53,19 @@ export class ProjectsComponent implements OnInit
     );
   }
 
+  isAllChecked: boolean = false;
+
+  @ViewChildren("prj") projs: QueryList<ProjectComponent>; //permite tener en projs la lista de projectos
+
+  isAllCheckedChange(event)
+  {
+    let proj = this.projs.toArray();
+    for (let i = 0; i < proj.length; i++)
+    {
+      proj[i].isAllCheckedChange(this.isAllChecked); //  a cada projecto le mando el valor del checkbox que esta en projectsComponent
+    }
+  }
+
   onNewClick(event)
   {
     this.newForm.resetForm();

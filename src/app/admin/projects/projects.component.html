@@ -14,6 +14,11 @@
         <button class="btn btn-secondary" (click)="onHideShowDetails($event)">Hide/Show Details</button>
       </div>
 
+      <div class="col-1 custom-control custom-checkbox">
+        <input type="checkbox" value="true" name="isAllChecked" id="isAllChecked" [(ngModel)]="isAllChecked" class="custom-control-input" (change)="isAllCheckedChange($event)">
+        <label class="custom-control-label" for="isAllChecked"></label>
+      </div>
+
       <label for="drpSearchBy" class="col-form-label col-2 text-right">Search by:</label>
 
       <div class="col-2">
@@ -44,7 +49,7 @@
 
       <div class="col-md-4" *ngFor="let project of projects; let i = index">
         <app-project #prj [currentProject]="project" [recordIndex]="i" (editClick)="onEditClick($event, i)" (deleteClick)="onDeleteClick($event, i)">
-         <app-check-box-printer></app-check-box-printer>
+         <app-check-box-printer #selectionBox></app-check-box-printer>
         </app-project>
       </div>
 

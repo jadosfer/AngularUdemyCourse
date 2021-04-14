@@ -13,5 +13,14 @@ export class CheckBoxPrinterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  check()
+  {
+    this.isChecked = true;
+  }
 
+  unCheck()
+  {
+    this.isChecked = false;
+  }
 }
