@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output, ContentChild, ContentChildren, QueryList, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ContentChild, ContentChildren, QueryList, SimpleChanges, OnChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Project } from 'src/app/project';
 import { ProjectsService } from 'src/app/projects.service';
@@ -9,7 +9,7 @@ import { CheckBoxPrinterComponent } from '../check-box-printer/check-box-printer
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
-export class ProjectComponent implements OnInit
+export class ProjectComponent implements OnChanges, OnInit
 {
   @Input("currentProject") project: Project;
   @Input("recordIndex") i: number;
@@ -35,13 +35,14 @@ export class ProjectComponent implements OnInit
     }
     if (simpleChanges["project"])
     {
-      this.project.teamSize += 1;
+      //this.project.teamSize += 1; //esto fue un ejercicio para ver qué se puede hacer en ngOnChanges
     }   
   }
 
 
   ngOnInit()
   {
+    console.info("------------ngOnInit called");
     this.MySubscription = this.projectsService.MySubject.subscribe((hide) => {
       this.hideDetails = hide;
     });
