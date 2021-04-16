@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LoginViewModel } from '../login-view-model';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
@@ -18,8 +18,13 @@ export class LoginComponent implements OnInit
   {
   }
 
+  @ViewChild("logOut") logOut: ElementRef;
+
   ngOnInit()
   {
+    setTimeout(() => {
+      this.logOut.nativeElement.focus();
+    }, 100);
   }
 
   onLoginClick(event)

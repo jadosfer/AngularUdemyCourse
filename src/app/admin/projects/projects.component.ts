@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ProjectsService } from "../../projects.service";
 import { Project } from '../../project';
 import { ClientLocation } from '../../client-location';
@@ -66,9 +66,14 @@ export class ProjectsComponent implements OnInit
     }
   }
 
+  @ViewChild("prjID") prjID: ElementRef;
+
   onNewClick(event)
   {
     this.newForm.resetForm();
+    setTimeout(() => {
+      this.prjID.nativeElement.focus();
+    }, 100);
   }
 
   onSaveClick()
@@ -107,11 +112,14 @@ export class ProjectsComponent implements OnInit
     }
   }
 
+  @ViewChild("prjName") prjName: ElementRef;
+
   onEditClick(event, index: number)
   {
     this.editForm.resetForm();
     setTimeout(() =>
     {
+      this.prjName.nativeElement.focus();
       this.editProject.projectID = this.projects[index].projectID;
       this.editProject.projectName = this.projects[index].projectName;
       this.editProject.dateOfStart = this.projects[index].dateOfStart.split("/").reverse().join("-"); //yyyy-MM-dd

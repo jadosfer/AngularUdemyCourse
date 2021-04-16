@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable, ViewChild } from '@angular/core';
 import { HttpClient, HttpBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginViewModel } from './login-view-model';
@@ -54,11 +54,10 @@ export class LoginService
     return this.httpClient.get<any>("/api/getUserByEmail/" + Email, { responseType: "json" });
   }
 
-
   public Logout()
   {
     sessionStorage.removeItem("currentUser");
-    this.currentUserName = null;
+    this.currentUserName = null;    
   }
 
   public isAuthenticated(): boolean
