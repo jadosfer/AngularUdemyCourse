@@ -23,8 +23,8 @@
       <tr>
         <th>Team Size</th>
         <td>
-          <span>{{project.teamSize}}</span>
-          <span class="text-info">{{project.teamSize | numberToWords}}</span>
+          <span>{{project.teamSize + " "}}</span>
+          <span class="text-info">{{project.teamSize | numberToWords: ' and '}}</span>
         </td>
       </tr>
       <tr>

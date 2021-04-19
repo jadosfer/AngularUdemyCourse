@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NumberToWordsPipe implements PipeTransform
 {
-  transform(value: any): any
+  transform(value: any, separator?: string): any
   {
     if (value == null)
     {
@@ -13,11 +13,11 @@ export class NumberToWordsPipe implements PipeTransform
     }
     else
     {
-      return this.inWords(value);
+      return this.inWords(value, separator);
     }
   }
 
-  private inWords = (n) =>
+  private inWords = (n, separator) =>
   {
     let a = [
       '', 'One', 'Two', 'Three', 'Four',
@@ -60,15 +60,15 @@ export class NumberToWordsPipe implements PipeTransform
     let thousand = (group, i) => group === '' ? group : `${group} ${g[i]}`;
 
     if (typeof n === 'number')
-      return this.inWords(str(n));
+      return this.inWords(str(n), separator);
     else if (n === '0')
       return 'Zero';
     else
-      return comp(chunk(3))(reverse)(arr(n))
+      return comp(chunk(3))(reverse)(arr(n)) //le agregué el espacio de entrada
         .map(makeGroup)
         .map(thousand)
         .filter(comp(not)(isEmpty))
         .reverse()
-        .join(' ');
+        .join(separator);
   }
 }
