@@ -9,6 +9,7 @@ import { ProjectComponent } from '../project/project.component';
 import { ViewChildren } from '@angular/core';
 import { QueryList } from '@angular/core';
 import { FilterPipe } from 'src/app/filter.pipe';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -18,17 +19,18 @@ import { FilterPipe } from 'src/app/filter.pipe';
 export class ProjectsComponent implements OnInit
 {
   projects: Project[] = [];
-  clientLocations: ClientLocation[] = [];
+  clientLocations: Observable<ClientLocation[]>;
   showLoading: boolean = true;
+
 
   newProject: Project = new Project();
   editProject: Project = new Project();
   editIndex: number = null;
   deleteProject: Project = new Project();
   deleteIndex: number = null;
-  searchBy: string = "ProjectName";
+  searchBy: string = "projectName";
   searchText: string = "";
-  
+
   currentPageIndex: number = 0;
   pages: any[] = [];
   pageSize: number = 3;
@@ -52,12 +54,7 @@ export class ProjectsComponent implements OnInit
       }
     );
 
-    this.clientLocationsService.getClientLocations().subscribe(
-      (response) =>
-      {
-        this.clientLocations = response;
-      }
-    );
+    this.clientLocations = this.clientLocationsService.getClientLocations();
   }
 
   calculateNoOfPages()
@@ -225,7 +222,7 @@ export class ProjectsComponent implements OnInit
     //   {
     //     this.projects = response;
     //   },
-    //   (error) => 
+    //   (error) =>
     //   {
     //     console.log(error);
     //   });

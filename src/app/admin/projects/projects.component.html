@@ -22,7 +22,7 @@
       <label for="drpSearchBy" class="col-form-label col-1 text-right">Search by:</label>
 
       <div class="col-2">
-        <select class="form-control" id="drpSearchBy" name="SearchBy" [(ngModel)]="searchBy">
+        <select value="projectName" class="form-control" id="drpSearchBy" name="SearchBy" [(ngModel)]="searchBy">
           <option value="projectID">Project ID</option>
           <option value="projectName">Project Name</option>
           <option value="dateOfStart">Date of Start</option>
@@ -30,7 +30,7 @@
         </select>
       </div>
 
-      <label for="textSearchText" class="col-form-label col-1 text-right">Search:</label>  
+      <label for="textSearchText" class="col-form-label col-1 text-right">Search:</label>
 
       <div class="col-3">
         <div class="input-group">
@@ -45,13 +45,13 @@
 
     </div>
   </div>
-  
+
   <div class="col-xl-12 mx-auto">
     <div class="row">
 
       <div class="col-md-4 mb-1 projectcard" *ngFor="let project of projects | filter: searchBy : searchText | paging: currentPageIndex: pageSize; let i = index">
         <app-project #prj [currentProject]="project" [recordIndex]="i" (editClick)="onEditClick($event, i)" (deleteClick)="onDeleteClick($event, i)">
-         <app-check-box-printer #selectionBox></app-check-box-printer>     
+         <app-check-box-printer #selectionBox></app-check-box-printer>
         </app-project>
 
       </div>
@@ -59,7 +59,7 @@
 
     <div class="row">
       <div class="col-12">
-        <ul class="pagination justify-content-center mt-1">          
+        <ul class="pagination justify-content-center mt-1">
           <li class="page-item" *ngFor="let page of pages" (click)="onPageIndexClicked(page.pageIndex)" [ngClass]=" { 'active': page.pageIndex == currentPageIndex}">
             <a href="#" onclick="return false" class="page-link">
               {{page.pageIndex + 1}}
@@ -164,7 +164,7 @@
             <div class="col-sm-8">
               <select id="drpNewClientLocation" class="form-control" name="ClientLocation" [(ngModel)]="newProject.clientLocationID" required="required" #newClientLocationID="ngModel" [ngClass]="{ 'is-invalid': newClientLocationID.invalid && (newClientLocationID.dirty || newClientLocationID.touched || newForm.submitted), 'is-valid': newClientLocationID.valid && (newClientLocationID.dirty || newClientLocationID.touched || newForm.submitted) }">
                 <option value="null">Please Select</option>
-                <option *ngFor="let clientLocation of clientLocations" [value]="clientLocation.clientLocationID">
+                <option *ngFor="let clientLocation of clientLocations | async" [value]="clientLocation.clientLocationID">
                   {{clientLocation.clientLocationName}}
                 </option>
               </select>
@@ -276,7 +276,7 @@
             <div class="col-sm-8">
               <select id="drpEditClientLocation" class="form-control" name="ClientLocation" [(ngModel)]="editProject.clientLocationID" required="required" #editClientLocationID="ngModel" [ngClass]="{ 'is-invalid': editClientLocationID.invalid && (editClientLocationID.dirty || editClientLocationID.touched || editForm.submitted), 'is-valid': editClientLocationID.valid && (editClientLocationID.dirty || editClientLocationID.touched || editForm.submitted) }">
                 <option value="null">Please Select</option>
-                <option *ngFor="let clientLocation of clientLocations" [value]="clientLocation.clientLocationID">
+                <option *ngFor="let clientLocation of clientLocations | async" [value]="clientLocation.clientLocationID">
                   {{clientLocation.clientLocationName}}
                 </option>
               </select>
