@@ -10,7 +10,7 @@
     "noImplicitReturns": true,
     "noImplicitAny": false, //agregué esta linea porque me tiraba error con "$event"
     "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,   
+    "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,

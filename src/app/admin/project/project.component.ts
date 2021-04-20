@@ -36,7 +36,7 @@ export class ProjectComponent implements OnChanges, OnInit, DoCheck, OnDestroy
     if (simpleChanges["project"])
     {
       //this.project.teamSize += 1; //esto fue un ejercicio para ver qué se puede hacer en ngOnChanges
-    }   
+    }
   }
 
 
@@ -76,14 +76,14 @@ export class ProjectComponent implements OnChanges, OnInit, DoCheck, OnDestroy
     if (b)
     {
       for (let i=0;i<selectionBox.length;i++) {
-        selectionBox[i].check(); 
-      }      
+        selectionBox[i].check();
+      }
     }
     else
     {
       for (let i=0;i<selectionBox.length;i++) {
         selectionBox[i].unCheck();
-      }            
+      }
     }
   }
 }

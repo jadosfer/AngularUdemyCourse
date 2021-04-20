@@ -11,6 +11,7 @@ import { JwtUnAuthorizedInterceptorService } from './jwt-un-authorized-intercept
 import {JwtModule} from '@auth0/angular-jwt';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { AlertDirective } from './alert.directive';
 
 
 
@@ -19,7 +20,8 @@ import { TasksComponent } from './tasks/tasks.component';
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    TasksComponent
+    TasksComponent,
+    AlertDirective
   ],
   imports: [
     BrowserModule,
