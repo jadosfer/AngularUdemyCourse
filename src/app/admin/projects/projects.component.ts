@@ -8,6 +8,7 @@ import * as $ from "jquery";
 import { ProjectComponent } from '../project/project.component';
 import { ViewChildren } from '@angular/core';
 import { QueryList } from '@angular/core';
+import { FilterPipe } from 'src/app/filter.pipe';
 
 @Component({
   selector: 'app-projects',
@@ -27,6 +28,10 @@ export class ProjectsComponent implements OnInit
   deleteIndex: number = null;
   searchBy: string = "ProjectName";
   searchText: string = "";
+  
+  currentPageIndex: number = 0;
+  pages: any[] = [];
+  pageSize: number = 3;
 
   @ViewChild("newForm") newForm: NgForm;
   @ViewChild("editForm") editForm: NgForm;
@@ -42,6 +47,8 @@ export class ProjectsComponent implements OnInit
       {
         this.projects = response;
         this.showLoading = false;
+
+        this.calculateNoOfPages();
       }
     );
 
@@ -52,6 +59,22 @@ export class ProjectsComponent implements OnInit
       }
     );
   }
+
+  calculateNoOfPages()
+  {
+    let filterPipe = new FilterPipe();
+    var resultProjects = filterPipe.transform(this.projects, this.searchBy, this.searchText);
+    var noOfPages = Math.ceil(resultProjects.length  / this.pageSize);
+
+    this.pages = [];
+    for (let i = 0; i < noOfPages; i++)
+    {
+      this.pages.push( { pageIndex: i });
+    }
+
+    this.currentPageIndex = 0;
+  }
+
 
   isAllChecked: boolean = false;
 
@@ -105,6 +128,7 @@ export class ProjectsComponent implements OnInit
         this.newProject.status = null;
 
         $("#newFormCancel").trigger("click");
+        this.calculateNoOfPages();
       }, (error) =>
         {
           console.log(error);
@@ -185,6 +209,8 @@ export class ProjectsComponent implements OnInit
         this.deleteProject.projectName = null;
         this.deleteProject.teamSize = null;
         this.deleteProject.dateOfStart = null;
+
+        this.calculateNoOfPages();
       },
       (error) =>
       {
@@ -194,20 +220,30 @@ export class ProjectsComponent implements OnInit
 
   onSearchClick()
   {
-    this.projectsService.SearchProjects(this.searchBy, this.searchText).subscribe(
-      (response: Project[]) =>
-      {
-        this.projects = response;
-      },
-      (error) => 
-      {
-        console.log(error);
-      });
+    // this.projectsService.SearchProjects(this.searchBy, this.searchText).subscribe(
+    //   (response: Project[]) =>
+    //   {
+    //     this.projects = response;
+    //   },
+    //   (error) => 
+    //   {
+    //     console.log(error);
+    //   });
+  }
+
+  onSearchTextKeyup(event)
+  {
+    this.calculateNoOfPages();
   }
 
   onHideShowDetails(event)
   {
     this.projectsService.toggleDetails();
+  }
+
+   onPageIndexClicked(pageIndex: number)
+  {
+    this.currentPageIndex = pageIndex;
   }
 }
 
