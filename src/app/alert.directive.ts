@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, HostListener } from '@angular/core';
+import { Directive, ElementRef, Input, HostListener, HostBinding } from '@angular/core';
 
 @Directive({
   selector: '[appAlert]'
@@ -6,6 +6,9 @@ import { Directive, ElementRef, Input, HostListener } from '@angular/core';
 export class AlertDirective {
 
   @Input("error") error: string;
+  @HostBinding("title") title: string;
+
+
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit(){
@@ -14,6 +17,7 @@ export class AlertDirective {
         <span>${this.error}</span>
       </div>
     `;
+    this.title = "Please try again!!";
   }
 
   @HostListener("mouseenter", [ "$event" ])
