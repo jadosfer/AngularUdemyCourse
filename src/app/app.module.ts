@@ -12,6 +12,7 @@ import {JwtModule} from '@auth0/angular-jwt';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { AlertDirective } from './alert.directive';
+import { RepeaterDirective } from './repeater.directive';
 
 
 
@@ -21,7 +22,8 @@ import { AlertDirective } from './alert.directive';
     LoginComponent,
     SignUpComponent,
     TasksComponent,
-    AlertDirective
+    AlertDirective,
+    RepeaterDirective
   ],
   imports: [
     BrowserModule,
