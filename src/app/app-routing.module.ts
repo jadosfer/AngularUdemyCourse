@@ -4,7 +4,7 @@ import { AboutComponent } from "./admin/about/about.component";
 import { LoginComponent } from './login/login.component';
 import { CanActivateGuardService } from './can-activate-guard.service';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { TasksComponent } from './tasks/tasks.component';
+import { TasksComponent } from './employee/tasks/tasks.component';
 
 
 const routes: Routes = [
