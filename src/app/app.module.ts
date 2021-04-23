@@ -14,8 +14,6 @@ import { TasksComponent } from './tasks/tasks.component';
 import { AlertDirective } from './alert.directive';
 import { RepeaterDirective } from './repeater.directive';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,12 +28,12 @@ import { RepeaterDirective } from './repeater.directive';
     AppRoutingModule,
     HttpClientModule,
     AdminModule,
-    FormsModule,    
+    FormsModule,
     ReactiveFormsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
-          return (sessionStorage.getItem("currentUser")? JSON.parse(sessionStorage.getItem("currentUser")).token : null)         
+          return (sessionStorage.getItem("currentUser")? JSON.parse(sessionStorage.getItem("currentUser")).token : null)
         }
       }
     }),
@@ -43,12 +41,12 @@ import { RepeaterDirective } from './repeater.directive';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptorService,      
+      useClass: JwtInterceptorService,
       multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: JwtUnAuthorizedInterceptorService,      
+      useClass: JwtUnAuthorizedInterceptorService,
       multi: true
     }
   ],

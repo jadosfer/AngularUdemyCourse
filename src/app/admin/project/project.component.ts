@@ -3,6 +3,8 @@ import { Subscription } from 'rxjs';
 import { Project } from 'src/app/project';
 import { ProjectsService } from 'src/app/projects.service';
 import { CheckBoxPrinterComponent } from '../check-box-printer/check-box-printer.component';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-project',
