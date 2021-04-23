@@ -26,7 +26,7 @@ export class SignUpComponent implements OnInit
   }
 
   ngOnInit()
-  {    
+  {
     this.countriesService.getCountries().subscribe((response) =>
     {
       this.countries = response;
@@ -37,9 +37,9 @@ export class SignUpComponent implements OnInit
         firstName: [null, [ Validators.required, Validators.minLength(2)]],
         lastName: [null, [ Validators.required, Validators.minLength(2)]],
       }),
-      
+
       email: [null, [ Validators.required, Validators.email],[this.customValidatorsService.DuplicateEmailValidator()]],
-      mobile: [null, [ Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]],      
+      mobile: [null, [ Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]],
       dateOfBirth: [null, [Validators.required, this.customValidatorsService.minimumAgeValidator(18)]],
       gender: [null, [ Validators.required]],
       countryID: [null, [ Validators.required]],
@@ -47,8 +47,8 @@ export class SignUpComponent implements OnInit
       skills: this.formBuilder.array([]),
       password: [null, [Validators.required]],
       confirmPassword: [null, [Validators.required]]
-    }, { 
-      validator: this.customValidatorsService.confirmedValidator('password', 'confirmPassword')    
+    }, {
+      validator: this.customValidatorsService.confirmedValidator('password', 'confirmPassword')
     });
 
     this.signUpForm.valueChanges.subscribe((value) =>
@@ -56,7 +56,6 @@ export class SignUpComponent implements OnInit
       //console.log(value);
     });
   }
-
 
 
   onSubmitClick()
@@ -71,7 +70,7 @@ export class SignUpComponent implements OnInit
       var signUpVieModel = this.signUpForm.value as SignUpViewModel;
       this.loginService.Register(signUpVieModel).subscribe(
         (response) => {
-          this.router.navigate( [ "tasks" ]);
+          this.router.navigate( ["/employee", "tasks" ]);
         },
         (error) => {
           console.log(error);

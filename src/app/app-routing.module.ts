@@ -13,11 +13,18 @@ const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
-  { path: "dashboard", component: DashboardComponent, canActivate: [ CanActivateGuardService ], data: { expectedRole: "Admin" } },
   { path: "about", component: AboutComponent },
-  { path: "projects", component: ProjectsComponent, canActivate: [ CanActivateGuardService ], data: { expectedRole: "Admin" } },
-  { path: "tasks", component: TasksComponent, canActivate: [ CanActivateGuardService ], data: { expectedRole: "Employee" } },
-  { path: "projects/view/:projectid", component: ProjectDetailsComponent, canActivate: [ CanActivateGuardService ], data: { expectedRole: "Admin" } },
+
+  { path: "admin", canActivate: [ CanActivateGuardService ], data: { expectedRole: "Admin" }, children: [
+    { path: "dashboard", component: DashboardComponent,  },
+    { path: "projects", component: ProjectsComponent },
+    { path: "projects/view/:projectid", component: ProjectDetailsComponent },
+  ]},
+
+  { path: "employee", canActivate: [ CanActivateGuardService ], data: { expectedRole: "Employee" }, children: [
+    { path: "tasks", component: TasksComponent },
+  ]},
+
 ];
 
 @NgModule({
