@@ -11,16 +11,11 @@ const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
-  { path: "about", component: AboutComponent },
-
-  { path: "employee", canActivate: [ CanActivateGuardService ], data: { expectedRole: "Employee" }, children: [
-    { path: "tasks", component: TasksComponent },
-  ]},
-
+  { path: "about", component: AboutComponent }, 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes, { useHash: true, enableTracing:true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule
