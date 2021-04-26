@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CanComponentDeactivate } from '../can-deactivate-guard.service';
 import { CountriesService } from '../countries.service';
 import { Country } from '../country';
 import { CustomValidatorsService } from '../custom-validators.service';
@@ -13,17 +14,19 @@ import { SignUpViewModel } from '../sign-up-view-model';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit
+export class SignUpComponent implements OnInit, CanComponentDeactivate
 {
   signUpForm: FormGroup;
   genders = ["male", "female"];
   countries: Country[] = []
   submitted: boolean = false; //lo agregué  yo para poder determinar el submitted
   registerError: string = null;
+  canLeave: boolean = true;
 
   constructor(private countriesService: CountriesService, private formBuilder: FormBuilder, private customValidatorsService: CustomValidatorsService, private loginService: LoginService, private router: Router)
   {
   }
+ 
 
   ngOnInit()
   {
@@ -54,6 +57,7 @@ export class SignUpComponent implements OnInit
     this.signUpForm.valueChanges.subscribe((value) =>
     {
       //console.log(value);
+      this.canLeave = false;
     });
   }
 
@@ -70,6 +74,7 @@ export class SignUpComponent implements OnInit
       var signUpVieModel = this.signUpForm.value as SignUpViewModel;
       this.loginService.Register(signUpVieModel).subscribe(
         (response) => {
+          this.canLeave = true;
           this.router.navigate( ["/employee", "tasks" ]);
         },
         (error) => {

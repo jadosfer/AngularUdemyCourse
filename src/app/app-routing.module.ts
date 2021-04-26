@@ -5,12 +5,13 @@ import { LoginComponent } from './login/login.component';
 import { CanActivateGuardService } from './can-activate-guard.service';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { TasksComponent } from './employee/tasks/tasks.component';
+import { CanDeactivateGuardService } from './can-deactivate-guard.service';
 
 
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
-  { path: "signup", component: SignUpComponent },
+  { path: "signup", component: SignUpComponent, canDeactivate: [CanDeactivateGuardService]},
   { path: "about", component: AboutComponent }, 
 ];
 
