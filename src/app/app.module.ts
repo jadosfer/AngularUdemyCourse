@@ -13,6 +13,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AlertDirective } from './alert.directive';
 import { RepeaterDirective } from './repeater.directive';
 import { EmployeeModule } from './employee/employee.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { EmployeeModule } from './employee/employee.module';
     HttpClientModule,
     AdminModule,
     EmployeeModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     JwtModule.forRoot({

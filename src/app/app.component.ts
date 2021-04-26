@@ -3,11 +3,13 @@ import { LoginService } from './login.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterLoggerService } from './router-logger.service';
 import { NavigationEnd, Router } from '@angular/router';
+import { fadeAnimation } from './my-animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [ fadeAnimation]
 })
 export class AppComponent
 {
@@ -34,4 +36,10 @@ export class AppComponent
   {
     console.log(this.loginService.currentUserName);
   }
+
+  getState(outlet)
+  {
+    return outlet.isActivated? outlet.activatedRoute.snapshot.url[0].path : "none";
+  }
 }
+
