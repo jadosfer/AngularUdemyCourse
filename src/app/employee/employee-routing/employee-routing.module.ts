@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: "employee", canActivate: [ CanActivateGuardService ], data: { expectedRole: "Employee" }, children: [
-    { path: "tasks", component: TasksComponent },
+    { path: "tasks", component: TasksComponent, data : {linkIndex: 1 } },
   ]},
 
 ];

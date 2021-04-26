@@ -3,13 +3,13 @@ import { LoginService } from './login.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterLoggerService } from './router-logger.service';
 import { NavigationEnd, Router } from '@angular/router';
-import { fadeAnimation, slideUpAnimation, zoomUpAnimation, zoomLeftAnimation } from './my-animations';
+import { fadeAnimation, slideUpAnimation, zoomUpAnimation, zoomLeftAnimation, slideLeftOrRightAnimation } from './my-animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [ zoomLeftAnimation]
+  animations: [ slideLeftOrRightAnimation]
 })
 export class AppComponent
 {
@@ -39,7 +39,7 @@ export class AppComponent
 
   getState(outlet)
   {
-    return outlet.isActivated? outlet.activatedRoute.snapshot.url[0].path : "none";
+    return outlet.isActivated? outlet.activatedRoute.snapshot.url[0].path && outlet.activatedRouteData["linkIndex"] : "none";
   }
 }
 
