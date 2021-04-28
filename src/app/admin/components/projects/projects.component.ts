@@ -1,15 +1,13 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Project } from '../../../models/project';
 import { ClientLocation } from '../../../models/client-location';
-import { ClientLocationsService } from '../../services/client-locations.service';
 import { NgForm } from '@angular/forms';
 import * as $ from "jquery";
-import { ViewChildren } from '@angular/core';
-import { QueryList } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ProjectComponent } from '../project/project.component';
-import { FilterPipe } from 'src/app/pipes/filter.pipe';
-import { Project } from 'src/app/models/project';
+import { FilterPipe } from '../../../pipes/filter.pipe';
+import { Observable } from 'rxjs';
 import { ProjectsService } from '../../services/projects.service';
+import { ClientLocationsService } from '../../services/client-locations.service';
 
 @Component({
   selector: 'app-projects',
@@ -21,7 +19,6 @@ export class ProjectsComponent implements OnInit
   projects: Project[] = [];
   clientLocations: Observable<ClientLocation[]>;
   showLoading: boolean = true;
-
 
   newProject: Project = new Project();
   editProject: Project = new Project();
@@ -41,7 +38,7 @@ export class ProjectsComponent implements OnInit
   constructor(private projectsService: ProjectsService, private clientLocationsService: ClientLocationsService)
   {
   }
-
+  
   ngOnInit()
   {
     this.projectsService.getAllProjects().subscribe(
@@ -72,17 +69,16 @@ export class ProjectsComponent implements OnInit
     this.currentPageIndex = 0;
   }
 
-
   isAllChecked: boolean = false;
 
-  @ViewChildren("prj") projs: QueryList<ProjectComponent>; //permite tener en projs la lista de projectos
+  @ViewChildren("prj") projs : QueryList<ProjectComponent>;
 
   isAllCheckedChange(event)
   {
     let proj = this.projs.toArray();
     for (let i = 0; i < proj.length; i++)
     {
-      proj[i].isAllCheckedChange(this.isAllChecked); //  a cada projecto le mando el valor del checkbox que esta en projectsComponent
+      proj[i].isAllCheckedChange(this.isAllChecked);
     }
   }
 
@@ -133,14 +129,11 @@ export class ProjectsComponent implements OnInit
     }
   }
 
-  @ViewChild("prjName") prjName: ElementRef;
-
   onEditClick(event, index: number)
   {
     this.editForm.resetForm();
     setTimeout(() =>
     {
-      this.prjName.nativeElement.focus();
       this.editProject.projectID = this.projects[index].projectID;
       this.editProject.projectName = this.projects[index].projectName;
       this.editProject.dateOfStart = this.projects[index].dateOfStart.split("/").reverse().join("-"); //yyyy-MM-dd
@@ -222,7 +215,7 @@ export class ProjectsComponent implements OnInit
     //   {
     //     this.projects = response;
     //   },
-    //   (error) =>
+    //   (error) => 
     //   {
     //     console.log(error);
     //   });
@@ -238,9 +231,8 @@ export class ProjectsComponent implements OnInit
     this.projectsService.toggleDetails();
   }
 
-   onPageIndexClicked(pageIndex: number)
+  onPageIndexClicked(pageIndex: number)
   {
     this.currentPageIndex = pageIndex;
   }
 }
-

@@ -4,16 +4,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {JwtModule} from '@auth0/angular-jwt';
+import { JwtModule } from '@auth0/angular-jwt';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AlertDirective } from './directives/alert.directive';
 import { RepeaterDirective } from './directives/repeater.directive';
 import { EmployeeModule } from './employee/employee.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptorService } from './interceptors/jwt-interceptor.service';
 import { JwtUnAuthorizedInterceptorService } from './interceptors/jwt-un-authorized-interceptor.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,15 +23,12 @@ import { JwtUnAuthorizedInterceptorService } from './interceptors/jwt-un-authori
     AlertDirective,
     RepeaterDirective
   ],
-  imports: [
+  imports: [ SharedModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     AdminModule,
     EmployeeModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
+    BrowserAnimationsModule,  
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

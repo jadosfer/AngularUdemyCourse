@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Country } from '../../models/country';
+import { SignUpViewModel } from '../../models/sign-up-view-model';
 import { Router } from '@angular/router';
+import { CanComponentDeactivate } from '../../guards/can-deactivate-guard.service';
 import { CountriesService } from 'src/app/admin/services/countries.service';
 import { CustomValidatorsService } from 'src/app/admin/services/custom-validators.service';
 import { LoginService } from 'src/app/admin/services/login.service';
-import { CanComponentDeactivate } from 'src/app/guards/can-deactivate-guard.service';
-import { Country } from 'src/app/models/country';
-import { SignUpViewModel } from 'src/app/models/sign-up-view-model';
-
 
 
 
