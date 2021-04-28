@@ -1,6 +1,5 @@
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { MyProfileComponent } from "./components/my-profile/my-profile.component";
-import { AboutComponent } from "./about/about.component";
 import { ProjectsComponent } from "./components/projects/projects.component";
 import { NgModule } from '@angular/core';
 import { ProjectComponent } from './components/project/project.component';
@@ -15,15 +14,14 @@ import { SharedModule } from "../shared/shared.module";
 @NgModule({
   declarations: [
     DashboardComponent,
-    MyProfileComponent,
-    AboutComponent,
+    MyProfileComponent,    
     ProjectsComponent,
     ProjectComponent,
     CheckBoxPrinterComponent,
     ProjectDetailsComponent
   ],
   imports: [ SharedModule, AdminRoutingModule ],
-  exports: [ DashboardComponent, MyProfileComponent, AboutComponent, ProjectsComponent, ProjectDetailsComponent],
+  exports: [ DashboardComponent, MyProfileComponent, ProjectsComponent, ProjectDetailsComponent],
   providers: [ DashboardService ]
 })
 export class AdminModule

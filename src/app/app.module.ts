@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './components/login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -14,6 +13,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptorService } from './interceptors/jwt-interceptor.service';
 import { JwtUnAuthorizedInterceptorService } from './interceptors/jwt-un-authorized-interceptor.service';
 import { SharedModule } from './shared/shared.module';
+import { AboutComponent } from './admin/about/about.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +21,12 @@ import { SharedModule } from './shared/shared.module';
     LoginComponent,
     SignUpComponent,    
     AlertDirective,
-    RepeaterDirective
+    RepeaterDirective,
+    AboutComponent
   ],
   imports: [ SharedModule,
     BrowserModule,
-    AppRoutingModule,
-    AdminModule,
+    AppRoutingModule,    
     EmployeeModule,
     BrowserAnimationsModule,  
     JwtModule.forRoot({
