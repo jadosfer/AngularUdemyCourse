@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CanComponentDeactivate } from '../can-deactivate-guard.service';
-import { CountriesService } from '../countries.service';
-import { Country } from '../country';
-import { CustomValidatorsService } from '../custom-validators.service';
-import { LoginService } from '../login.service';
-import { SignUpViewModel } from '../sign-up-view-model';
+import { CountriesService } from 'src/app/admin/services/countries.service';
+import { CustomValidatorsService } from 'src/app/admin/services/custom-validators.service';
+import { LoginService } from 'src/app/admin/services/login.service';
+import { CanComponentDeactivate } from 'src/app/guards/can-deactivate-guard.service';
+import { Country } from 'src/app/models/country';
+import { SignUpViewModel } from 'src/app/models/sign-up-view-model';
+
+
 
 
 @Component({
@@ -23,7 +25,9 @@ export class SignUpComponent implements OnInit, CanComponentDeactivate
   registerError: string = null;
   canLeave: boolean = true;
 
-  constructor(private countriesService: CountriesService, private formBuilder: FormBuilder, private customValidatorsService: CustomValidatorsService, private loginService: LoginService, private router: Router)
+  constructor(private countriesService: CountriesService, private formBuilder: FormBuilder, 
+    private customValidatorsService: CustomValidatorsService, private loginService: LoginService, 
+    private router: Router)
   {
   }
  

@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from "./admin/about/about.component";
-import { LoginComponent } from './login/login.component';
-import { CanActivateGuardService } from './can-activate-guard.service';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { TasksComponent } from './employee/tasks/tasks.component';
-import { CanDeactivateGuardService } from './can-deactivate-guard.service';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { CanDeactivateGuardService } from './guards/can-deactivate-guard.service';
+
 
 
 const routes: Routes = [

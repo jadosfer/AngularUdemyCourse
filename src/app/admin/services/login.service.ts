@@ -1,11 +1,10 @@
 import { ElementRef, Injectable, ViewChild } from '@angular/core';
-import { HttpClient, HttpBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LoginViewModel } from './login-view-model';
 import { map } from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import { SignUpViewModel } from './sign-up-view-model';
-
+import { HttpBackend, HttpClient } from '@angular/common/http';
+import { LoginViewModel } from 'src/app/models/login-view-model';
+import { SignUpViewModel } from 'src/app/models/sign-up-view-model';
 
 
 @Injectable({

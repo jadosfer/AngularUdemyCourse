@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject, Observable, Observer } from 'rxjs';
-import { Project } from './project';
 import { map } from "rxjs/operators";
 import { Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Project } from 'src/app/models/project';
 
 @Injectable({
   providedIn: 'root'

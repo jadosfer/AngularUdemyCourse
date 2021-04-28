@@ -1,15 +1,15 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ProjectsService } from "../../projects.service";
-import { Project } from '../../project';
-import { ClientLocation } from '../../client-location';
-import { ClientLocationsService } from '../../client-locations.service';
+import { ClientLocation } from '../../../models/client-location';
+import { ClientLocationsService } from '../../services/client-locations.service';
 import { NgForm } from '@angular/forms';
 import * as $ from "jquery";
-import { ProjectComponent } from '../project/project.component';
 import { ViewChildren } from '@angular/core';
 import { QueryList } from '@angular/core';
-import { FilterPipe } from 'src/app/filter.pipe';
 import { Observable } from 'rxjs';
+import { ProjectComponent } from '../project/project.component';
+import { FilterPipe } from 'src/app/pipes/filter.pipe';
+import { Project } from 'src/app/models/project';
+import { ProjectsService } from '../../services/projects.service';
 
 @Component({
   selector: 'app-projects',

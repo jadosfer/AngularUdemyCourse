@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { LoginViewModel } from '../login-view-model';
-import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/admin/services/login.service';
+import { LoginViewModel } from 'src/app/models/login-view-model';
+
 
 
 @Component({
