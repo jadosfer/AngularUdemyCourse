@@ -30,7 +30,8 @@ import { MastersComponent } from "./components/masters/masters.component";
   ],
   imports: [ SharedModule, AdminRoutingModule ],
   exports: [ DashboardComponent, MyProfileComponent, ProjectsComponent, ProjectDetailsComponent],
-  providers: [ DashboardService ]
+  providers: [ DashboardService ],
+  entryComponents: [ CountriesComponent, ClientLocationsComponent, TaskPrioritiesComponent, TaskStatusComponent]
 })
 export class AdminModule
 {

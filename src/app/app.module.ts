@@ -15,7 +15,6 @@ import { JwtUnAuthorizedInterceptorService } from './interceptors/jwt-un-authori
 import { SharedModule } from './shared/shared.module';
 import { AboutComponent } from './admin/about/about.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
