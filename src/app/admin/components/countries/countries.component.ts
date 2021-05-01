@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountriesComponent implements OnInit {
 
+  message: string = null;
+
   constructor() { }
 
   ngOnInit(): void {
