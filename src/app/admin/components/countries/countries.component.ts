@@ -14,4 +14,9 @@ export class CountriesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnDestroy()
+  {
+    console.log("ngOnDestroy");
+  }
+
 }

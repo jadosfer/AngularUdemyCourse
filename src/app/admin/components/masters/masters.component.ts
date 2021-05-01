@@ -58,6 +58,8 @@ export class MastersComponent implements OnInit
         var viewContainterRef = componentLoadersArray[this.tabs.length - 1].viewContainerRef;
         var componentRef = viewContainterRef.createComponent(componentFactory);
 
+        this.tabs[this.tabs.length - 1].viewContainerRef = viewContainterRef;
+
         if (clickedMasterMenuItem.component.name == "CountriesComponent")
         {
           var componentInstance = componentRef.instance as CountriesComponent;
@@ -65,6 +67,16 @@ export class MastersComponent implements OnInit
         }
       }, 100);
     }
-
   }
+
+  onCloseClick(clickedTab: any)
+  {
+    clickedTab.viewContainerRef.remove();
+    this.tabs.splice(this.tabs.indexOf(clickedTab), 1);
+    if (this.tabs.length > 0)
+    {
+      this.activeItem = this.tabs[0].itemName;
+    }
+  }
+
 }
