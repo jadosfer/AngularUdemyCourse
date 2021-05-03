@@ -109,7 +109,7 @@ export class CountriesComponent implements OnInit {
 
   onSaveClick()
   {
-    this.submitted = true;
+    this.submitted = true; //esto lo agrego yo
     if (this.newForm.valid)
     {
       //Invoke the REST-API call
@@ -151,7 +151,7 @@ export class CountriesComponent implements OnInit {
 
   onUpdateClick()
   {
-    this.submitted = true;
+    this.submitted = true; //esto lo agrego yo
     if (this.editForm.valid)
     {
       //Invoke the REST-API call

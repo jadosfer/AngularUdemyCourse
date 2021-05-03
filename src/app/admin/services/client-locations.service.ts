@@ -16,4 +16,26 @@ export class ClientLocationsService
   {
     return this.httpClient.get<ClientLocation[]>("/api/clientlocations", { responseType: "json" });
   }
+
+  getClientLocationtByClientLocationID(ClientLocationID: number): Observable<ClientLocation>
+  {
+    return this.httpClient.get<ClientLocation>("/api/clientlocations/searchbyclientlocationid/" + ClientLocationID, { responseType: "json" });
+  }
+
+  insertClientLocation(newClientLocation: ClientLocation): Observable<ClientLocation>
+  {
+    return this.httpClient.post<ClientLocation>("/api/clientlocations", newClientLocation, { responseType: "json" });
+  }
+
+  updateClientLocation(existingClientLocation: ClientLocation): Observable<ClientLocation>
+  {
+    return this.httpClient.put<ClientLocation>("/api/clientlocations", existingClientLocation, { responseType: "json" });
+  }
+
+  deleteClientLocation(ClientLocationID: number): Observable<string>
+  {
+    return this.httpClient.delete<string>("/api/clientlocations?ClientLocationID=" + ClientLocationID);
+  }
 }
+
+
