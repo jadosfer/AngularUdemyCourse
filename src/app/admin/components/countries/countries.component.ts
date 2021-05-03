@@ -40,6 +40,10 @@ export class CountriesComponent implements OnInit {
   @ViewChild("defaultTextBox_New") defaultTextBox_New: ElementRef;
   @ViewChild("defaultTextBox_Edit") defaultTextBox_Edit: ElementRef;
 
+  //Sorting
+  sortBy: string = "countryName";
+  sortOrder: string = "ASC"; //ASC | DESC
+
   constructor(private countriesService: CountriesService, private formBuilder: FormBuilder) { }
 
   ngOnInit()
