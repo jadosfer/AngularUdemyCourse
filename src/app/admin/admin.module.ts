@@ -6,7 +6,7 @@ import { ProjectComponent } from './components/project/project.component';
 import { CheckBoxPrinterComponent } from './components/check-box-printer/check-box-printer.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { AdminRoutingModule } from './admin-routing/admin-routing.module';
-import { DashboardService } from "./services/dashboard.service";
+import { DashboardService } from "../services/dashboard.service";
 import { SharedModule } from "../shared/shared.module";
 import { CountriesComponent } from "./components/countries/countries.component";
 import { ClientLocationsComponent } from "./components/client-locations/client-locations.component";

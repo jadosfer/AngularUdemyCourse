@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/admin/services/login.service';
+import { LoginService } from 'src/app/services/login.service';
 import { LoginViewModel } from 'src/app/models/login-view-model';
 
 

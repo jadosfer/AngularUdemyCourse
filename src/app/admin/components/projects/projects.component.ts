@@ -6,8 +6,8 @@ import * as $ from "jquery";
 import { ProjectComponent } from '../project/project.component';
 import { FilterPipe } from '../../../pipes/filter.pipe';
 import { Observable } from 'rxjs';
-import { ProjectsService } from '../../services/projects.service';
-import { ClientLocationsService } from '../../services/client-locations.service';
+import { ProjectsService } from '../../../services/projects.service';
+import { ClientLocationsService } from '../../../services/client-locations.service';
 
 @Component({
   selector: 'app-projects',

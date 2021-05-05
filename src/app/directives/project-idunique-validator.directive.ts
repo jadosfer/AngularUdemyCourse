@@ -2,7 +2,7 @@ import { Directive } from '@angular/core';
 import { AbstractControl, AsyncValidator, NG_ASYNC_VALIDATORS, ValidationErrors } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ProjectsService } from '../admin/services/projects.service';
+import { ProjectsService } from '../services/projects.service';
 import { Project } from '../models/project';
 
 @Directive({

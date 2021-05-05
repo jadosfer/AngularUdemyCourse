@@ -4,9 +4,9 @@ import { Country } from '../../models/country';
 import { SignUpViewModel } from '../../models/sign-up-view-model';
 import { Router } from '@angular/router';
 import { CanComponentDeactivate } from '../../guards/can-deactivate-guard.service';
-import { CountriesService } from 'src/app/admin/services/countries.service';
-import { CustomValidatorsService } from 'src/app/admin/services/custom-validators.service';
-import { LoginService } from 'src/app/admin/services/login.service';
+import { CountriesService } from 'src/app/services/countries.service';
+import { CustomValidatorsService } from 'src/app/services/custom-validators.service';
+import { LoginService } from 'src/app/services/login.service';
 
 
 

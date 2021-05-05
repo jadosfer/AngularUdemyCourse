@@ -3,7 +3,7 @@ import { ClientLocation } from '../../../models/client-location';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FilterPipe } from '../../../pipes/filter.pipe';
 import * as $ from "jquery";
-import { ClientLocationsService } from '../../services/client-locations.service';
+import { ClientLocationsService } from '../../../services/client-locations.service';
 
 @Component({
   selector: 'app-client-locations',

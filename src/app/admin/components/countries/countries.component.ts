@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Country } from 'src/app/models/country';
 import { FilterPipe } from 'src/app/pipes/filter.pipe';
-import { CountriesService } from '../../services/countries.service';
+import { CountriesService } from '../../../services/countries.service';
 import * as $ from 'jquery';
 
 @Component({

@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { CheckBoxPrinterComponent } from '../check-box-printer/check-box-printer.component';
 import { RouterModule } from '@angular/router';
 import { Project } from 'src/app/models/project';
-import { ProjectsService } from '../../services/projects.service';
+import { ProjectsService } from '../../../services/projects.service';
 
 
 @Component({
