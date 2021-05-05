@@ -18,6 +18,7 @@ export class LoginService
   }
 
   currentUserName: string  = null;
+  currentUserRole: string  = null;
 
   public Login(loginViewModel: LoginViewModel): Observable<any>
   {
@@ -27,6 +28,7 @@ export class LoginService
       if (response)
       {
         this.currentUserName = response.body.userName;
+        this.currentUserRole = response.body.role;
         sessionStorage.currentUser = JSON.stringify(response.body);
         sessionStorage.XSRFRequestToken = response.headers.get("XSRF-REQUEST-TOKEN");
       }

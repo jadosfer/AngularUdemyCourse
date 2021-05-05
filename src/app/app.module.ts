@@ -19,11 +19,11 @@ import { AboutComponent } from './admin/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
+    AboutComponent,
     LoginComponent,
     SignUpComponent,    
     AlertDirective,
-    RepeaterDirective,
-    AboutComponent
+    RepeaterDirective     
   ],
   imports: [ SharedModule,
     BrowserModule,
