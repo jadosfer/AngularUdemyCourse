@@ -1,4 +1,4 @@
-import { ElementRef, Injectable, ViewChild } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
@@ -85,7 +85,10 @@ export class LoginService
       return true; //token is valid
     }
   }
+
+  public getAllEmployes(): Observable<any>
+  {
+    this.httpClient = new HttpClient(this.httpBackend);
+    return this.httpClient.get<any>("/api/getallemployees", { responseType: "json" });
+  }
 }
-
-
-
