@@ -1,4 +1,5 @@
 import { Project } from './project';
+import { TaskPriority } from './task-priority';
 
 export class Task
 {
@@ -9,6 +10,7 @@ export class Task
     projectID: number;
     createdBy: string;
     assignedTo: string;
+    taskPriority: TaskPriority;
     taskPriorityID: number;
     lastUpdatedOn: number;
     currentStatus: number;
@@ -28,6 +30,7 @@ export class Task
         this.projectID = null;
         this.createdBy = null;
         this.assignedTo = null;
+        this.taskPriority = null;
         this.taskPriorityID = null;
         this.lastUpdatedOn = null;
         this.currentStatus = null;
