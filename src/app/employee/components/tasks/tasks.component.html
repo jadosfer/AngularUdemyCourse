@@ -76,7 +76,7 @@
                                             <i class="fa fa-calendar"></i>
                                             {{taskStatusDetail?.statusUpdationDateTimeString}}
                                         </td>
-                                        <td class="text-primary">
+                                        <td class="text-primary" [ngClass] = "getTaskGroupTextCssClass(taskStatusDetail?.taskStatus?.taskStatusName)">
                                             {{taskStatusDetail?.taskStatus?.taskStatusName}}
                                         </td>
                                         <td>
